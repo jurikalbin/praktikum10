@@ -1,0 +1,19 @@
+<h3>Vali oma lemmik :)</h3>
+	<form action="?page=tulemus" method="POST">
+		<?php
+			$i=0;
+			foreach($gallery as $picture){
+				$i++;
+			?>
+			<p>
+				<label for="p<?php echo $i;?>">
+					<img src="<?php echo $picture['pic'];?>" alt="<?php echo $picture['alt'];?>" height="100" /> 
+				</label>
+				<input type="radio" value="<?php echo $i;?>" id="p<?php echo $i;?>" name="pilt"/>
+			</p>	
+		<?php		
+		}
+		?>
+		<br/>
+		<input type="submit" value="Valin!"/>
+	</form>

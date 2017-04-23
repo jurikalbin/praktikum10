@@ -1,0 +1,19 @@
+<?php 
+	require_once('head.html');
+		$count = count($gallery);
+		if (isset($_SESSION['voted'])){
+			$answ="Oled juba valiku teinud! Sinu valituks sai pilt number ".$_SESSION['voted'];
+			}elseif (!empty($_POST)){
+				if (isset($_POST['pilt']) && $_POST['pilt']!="" && $_POST['pilt']<=$count && $_POST['pilt']> 0 ) {
+					$answ="Valisid pildi number: ".$_POST['pilt']." kõikide piltide arv on ".$count;
+					$_SESSION['voted']=$_POST['pilt'];
+				}
+			}else {
+				$answ="Pilti ei valitud!!!";
+			}
+	?>
+<h3>Valiku tulemus</h3>
+<p><?php echo $answ ?></p>
+
+<a href="?page=tyhistus">Tühista oma valik ja tee uus!</a>
+<?php require_once('foot.html'); ?>
